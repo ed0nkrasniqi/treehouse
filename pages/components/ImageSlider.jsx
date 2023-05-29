@@ -25,7 +25,7 @@ function ImageSlider({ data }) {
 
   return (
     <div className="image-slider h-full w-full relative">
-      <div className="flex  bg-zinc-100 rounded-full sm:w-96 w-64 sm:ml-[96px] ml-5 justify-center py-[5px]">
+      <div className="flex  bg-zinc-100 rounded-full sm:w-96 w-64 lg:ml-[96px] ml-5 justify-center py-[5px]">
         <ProjectTitle prtitle={data.prTitle} />
         <p className="font-medium sm:ml-10 ml-5 sm:text-2xl">{getCurrentImageText()}</p>
       </div>

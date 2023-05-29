@@ -30,33 +30,33 @@ export default function Projects({data}) {
       </div>
 
 {/* ///// */}
-<div className='bg-zinc-100 sm:flex justify-center  m-10 rounded-xl sm:py-10 p-5'>
+<div className='bg-zinc-100 lg:flex justify-center  m-10 rounded-xl lg:py-10 p-5'>
 
-<div className='sm:pl-10  py-10 sm:pr-32'>
+<div className='lg:pl-10  py-10 lg:pr-32'>
 <div>
   <h3 className='sm:text-3xl text-xl font-bold mb-5'>House Square Metres</h3>
   <SquareMetres metres={data.houseSquare}/>
   </div>
   <div className='flex jusitfy-center'>
-    <Link href='/contact' target='_blank' className='text-white font-bold sm:text-xl bg-green-950 text-center rounded-full sm:mt-10 mt-3 sm:px-28 px-16 sm:py-4 py-2'>Contact Us</Link>
+    <Link href='/contact' target='_blank' className='text-white font-bold sm:text-xl bg-green-950 text-center rounded-full lg:mt-10 mt-3 lg:px-28 px-16 lg:py-4 py-2'>Contact Us</Link>
   </div>
 </div>
 
 
-<div className='bg-white sm:pr-[380px]  sm:pl-10  py-10 px-5 rounded-xl'>
+<div className='bg-white lg:pr-[380px]  lg:pl-10  py-10 px-5 rounded-xl'>
         <h3 className='sm:text-3xl text-xl font-bold mb-10'>Featured Highlights</h3>
        <BedroomsNum number= {data.bedroomsNumber}/>
        <BathroomsNum number={data.bathroomsNumber} />
        
 
-<div className='sm:flex justify-between items-center'>
+<div className='lg:flex justify-between items-center'>
     <div >
 
 <ul className='sm:flex  my-[20px]'>
-        <li className='pb-2 decoration-2'><Link className='sm:mr-[20px] sm:pr-[20px]   sm:border-r-2' href='#'>Modern House</Link></li>
-        <li className='pb-2 decoration-2'><Link className='sm:mr-[20px] sm:pr-[20px]   sm:border-r-2' href='#'>Classic House</Link></li>
-        <li className='pb-2 decoration-2'><Link className='sm:mr-[20px] sm:pr-[20px]   sm:border-r-2' href='#'>Modern House</Link></li>
-        <li className='pb-2 decoration-2'><Link className='sm:mr-[20px] sm:pr-[20px]   sm:border-r-2' href='#'>Classic House</Link></li>
+        <li className='pb-2 underline'><Link className='lg:mr-[20px] sm:pr-[20px]   ' href='#'>Modern House</Link></li>
+        <li className='pb-2 underline'><Link className='lg:mr-[20px] sm:pr-[20px]   ' href='#'>Classic House</Link></li>
+        <li className='pb-2 underline'><Link className='lg:mr-[20px] sm:pr-[20px]   ' href='#'>Modern House</Link></li>
+        <li className='pb-2 underline'><Link className='lg:mr-[20px] sm:pr-[20px]   ' href='#'>Classic House</Link></li>
 </ul>    
 
     </div>
@@ -79,13 +79,13 @@ export default function Projects({data}) {
 
 
 <p className='pl-5 mt-10 sm:text-3xl text-xl'>Tour This House</p>
-<div className='flex flex-wrap  border-zinc-300  justify-center'>
+<div className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
   
   {data.moreImages.map((more, index) => {
     return (
       <>
       <div key={more.id} className='flex  justify-center sm:w-1/2'>
-        <div className='sm:p-5 px-5 py-2'>
+        <div className='lg:p-5  px-5 py-2'>
           <img className='sm:rounded-3xl rounded-xl' src={more.galleryImages.url} />
         </div>
       </div>

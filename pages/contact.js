@@ -15,11 +15,11 @@ export default function Contact() {
 
 
      <div className="background"></div>
-     <div className="sm:flex sm:flex-row items-center sm:p-0 p-5  justify-center sm:min-h-screen ">
-    <div className="sm:w-1/2 relative">
+     <div className="lg:flex lg:flex-row items-center lg:p-0 p-5  justify-center sm:min-h-screen ">
+    <div className="lg:w-1/2 relative">
       <div className="relative">
       
-        <div className="sm:absolute sm:top-1/2 sm:left-1/2 sm:transform sm:-translate-x-1/2 bg-white bg-opacity-50 px-10 py-10 rounded-2xl sm:-translate-y-1/2 ">
+        <div className="lg:absolute lg:top-1/2 lg:left-1/2 lg:transform my-5 lg:-translate-x-1/2 bg-white bg-opacity-50 px-10 py-10 rounded-2xl lg:-translate-y-1/2 ">
           <h1 className="text-5xl pb-10 font-bold text-black mb-2">Have a project in mind?</h1>
           <p className="text-black pb-10 text-2xl font-bold">Reach out to us. We can make your dream a reality.</p>
           
@@ -41,8 +41,9 @@ export default function Contact() {
         </div>
       </div>
     </div>
-    <div className="sm:w-1/2 rounded-3xl sm:mr-24  p-8">
-      <h1 className="text-4xl font-bold text-black mb-6">Contact Us</h1>
+
+    <div className="lg:w-1/2 lg:m-10 rounded-3xl  bg-white bg-opacity-50  p-8">
+      <h1 className="text-5xl font-bold text-black mb-6">Contact Us</h1>
       <div className="mb-6">
         <label for="name" className="block text-black font-semibold mb-2">Name</label>
         <input type="text" id="name" name="name" className="w-full px-4 py-2 border bg-white bg-opacity-50  border-gray-400 rounded-xl focus:outline-none "/>
@@ -59,6 +60,7 @@ export default function Contact() {
         <button type="submit" className="px-10 py-2  bg-green-900 bg-opacity-70 text-white  font-semibold rounded-lg hover:bg-green-950 focus:outline-none  ">Submit</button>
       </div>
     </div>
+  
   </div>
 
 
