@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Comfortaa } from 'next/font/google';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Link from 'next/link';
 
 export const comfortaa = Comfortaa({
   subsets: ['latin'],
@@ -97,33 +98,13 @@ const Catalog = () => {
   return (
     <>
       <Header />
-      <div className={`${comfortaa.className} flex`}>
-        <div className="float-left pb-10 mr-10 rounded-r-xl bg-[#f8f8f6] w-1/4">
-          <div className='my-10 pb-10 border-b-2 mx-10 border-zinc-300'>
+      <div className={`${comfortaa.className} sm:flex`}>
+        <div className="float-left pb-10  mr-10 rounded-r-xl bg-[#f8f8f6] ">
+          <div className='my-10 pb-10 border-b-2 mx-10 border-zinc-300 '>
             <h3 className='text-2xl'>Catalog Filters</h3>
           </div>
 
-          <div className='mx-10 pb-5'>
-            <h4 className='text-xl mb-2'>House Style</h4>
-            <div className='flex '>
-              <button
-                className={`p-2 rounded-xl mr-5 ${
-                  selectedCategory === 'Modern House' ? 'bg-green-900 text-white' : 'bg-white border-2 border-green-900'
-                }`}
-                onClick={() => handleCategoryChange('Modern House')}
-              >
-                Modern House
-              </button>
-              <button
-                className={`p-2 rounded-xl ${
-                  selectedCategory === 'Classic House' ? 'bg-green-900 text-white' : 'bg-white border-2 border-green-900'
-                }`}
-                onClick={() => handleCategoryChange('Classic House')}
-              >
-                Classic House
-              </button>
-            </div>
-          </div>
+
 
           <div className='mx-10 pb-5 '>
             <h4 className='text-xl mb-2'>Bedrooms</h4>
@@ -215,7 +196,7 @@ const Catalog = () => {
             </div>
           </div>
 
-          <div className='mx-10 pb-5'>
+          <div className='mx-10 pb-10 border-b-2 border-zinc-300'>
             <h4 className='text-xl mb-2'>Garage</h4>
             <div className='flex'>
               <button
@@ -236,20 +217,53 @@ const Catalog = () => {
               </button>
             </div>
           </div>
+
+          <div className='m-10'>
+      <h4 className='text-xl mb-5'>Style Category</h4>
+    <div className='flex '>      
+  <div className='mr-5  rounded-xl border-[2px] border-zinc-300 '>
+    
+    <img
+      src="catalog1.jpg"
+      alt="Modern House"
+      className={`rounded-t-xl ${selectedCategory.includes("Modern House") ? "border-green-900" : ""}`}
+      onClick={() => handleCategoryChange("Modern House")}
+      style={{ width: "200px", height: "120px", cursor: "pointer" }}
+    />
+    
+    <div className='bg-white rounded-b-lg'>
+    <p className='text-center py-1 text-[15px]'>Modern House</p>
+    </div>
+  </div>
+  <div className='rounded-xl border-2 shadow-sm border-zinc-300'>
+    <img
+      src="catalog2.jpg"
+      alt="Classic House"
+      className={`rounded-t-xl ${selectedCategory.includes("Classic House") ? "border-green-900" : ""}`}
+      onClick={() => handleCategoryChange("Classic House")}
+      style={{ width: "200px", height: "120px", cursor: "pointer" }}
+    />
+    <div className='bg-white rounded-b-lg'>
+    <p className='text-center py-1 text-[15px]'>Classic House</p>
+    </div>
+  </div>
+</div>
+        </div>
         </div>
 
-        <div className='bg-[#f8f8f6] float-right w-3/4'>
-          <div className='grid grid-cols-2 gap-4 px-10 py-8'>
+        <div className='bg-[#f8f8f6] rounded-xl float-right sm:w-3/4'>
+          <div className='grid sm:grid-cols-2 gap-4 px-10 py-8'>
             {filteredProducts.map((product) => (
               <div className="border-2 rounded-xl" key={product.id}>
-                <img href={product.link} src={product.imageUrl} alt={product.name} className='w-full rounded-t-xl h-96 object-cover' />
-                <div className='flex justify-between p-2'>
-                  <div className='p-2 '>
+                
+                <Link href={product.link}><img href={product.link} src={product.imageUrl} alt={product.name} className='w-full rounded-t-xl h-96 object-cover' /></Link>
+
+                <div className='flex justify-between items-center p-2'>
+                  
                     <h3 className='text-xl font-bold'>{product.name}</h3>
-                    <p className='text-gray-600'>
-                      {product.bedrooms} Bedrooms  {product.bathrooms} Bathrooms  {product.stories} Stories
-                    </p>
-                  </div>
+                 <button href={product.link} className='text-xl border-2 rounded-xl px-2 py-[6px] border-green-900 hover:text-white font-bold hover:bg-green-900'>
+                  View Details
+                 </button>
   
                 </div>
               </div>
@@ -258,7 +272,7 @@ const Catalog = () => {
         </div>
       </div>
 
-      <Footer />
+     
       {comfortaa.styles}
     </>
   );
