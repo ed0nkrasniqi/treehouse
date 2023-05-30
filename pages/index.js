@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import { Comfortaa } from 'next/font/google'
-import Header from './components/Header'
-import FirstSection from './components/FirstSection'
-import Footer from './components/Footer'
-import Name from './components/Name'
-import Comment from './components/Comment'
-import SecondSec from './components/SecondSec'
-import ImageSlider from './components/ImageSlider'
+import Header from '../components/Header'
+import FirstSection from '../components/FirstSection'
+import Footer from '../components/Footer'
+import Name from '../components/Name'
+import Comment from '../components/Comment'
+import SecondSec from '../components/SecondSec'
+import ImageSlider from '../components/ImageSlider'
 
 export const comfortaa = Comfortaa({
   subsets:[ 'latin'],

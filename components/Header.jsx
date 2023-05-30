@@ -16,7 +16,7 @@ export default function Header() {
           <div className="hidden md:block">
             <ul className="flex  text-xl">
               <li className="px-8">
-                <Link href="/">
+                <Link href="/index">
                   Home
                 </Link>
               </li>
@@ -26,7 +26,7 @@ export default function Header() {
                 </Link>
               </li>
               <li className="px-8">
-                <Link href="/info">
+                <Link href="/catalog">
                   Catalog
                 </Link>
               </li>

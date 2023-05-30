@@ -1,13 +1,13 @@
 import { Comfortaa } from 'next/font/google'
-import ProjectTitle from './components/ProjectTitle'
-import ImageSlider from './components/ImageSlider'
-import BedroomsNum from './components/BedroomsNum'
-import BathroomsNum from './components/BathroomsNum'
-import Header from './components/Header'
+import ProjectTitle from '../../components/ProjectTitle'
+import ImageSlider from '../../components/ImageSlider'
+import BedroomsNum from '../../components/BedroomsNum'
+import BathroomsNum from '../../components/BathroomsNum'
+import Header from '../../components/Header'
 import Link from 'next/link'
-import Footer from './components/Footer'
-import FloorTitle from './components/FloorTitle'
-import SquareMetres from './components/SquareMetres'
+import Footer from '../../components/Footer'
+import FloorTitle from '../../components/FloorTitle'
+import SquareMetres from '../../components/SquareMetres'
 
 
 export const comfortaa = Comfortaa({
@@ -22,6 +22,7 @@ export default function Projects({data}) {
 <main className={`${comfortaa.className}`}>
       <Header />
 
+      <>
       <div className="flex w-full h-full">
         <div className="flex-grow overflow-hidden">
           
@@ -93,6 +94,8 @@ export default function Projects({data}) {
     );
   })}
 </div>
+</>
+    
 
 
 
@@ -103,14 +106,32 @@ export default function Projects({data}) {
   }
 
 
+ 
+  export async function getStaticPaths() { 
+    
+    const res = await fetch(`http://localhost:3000/api/projects/`);
+    const data =  await res.json();
 
-  export async function getServerSideProps() {
+   const paths =  data?.docs?.map((doc) => ({
+        params : {id : doc?.id}
+    }));
+
+    return {
+      paths, fallback: false
+}
+}
+  export async function getStaticProps({params}) {
     // Fetch data from external API
-    const res = await fetch(`http://localhost:3000/api/projects/64637b9b8598e53198f3e710`)
+    const res = await fetch(`http://localhost:3000/api/projects/${params.id}`)
     const data = await res.json()
   
     // Pass data to the page via props
-    return { props: { data } }
+    return { props: { data } , revalidate : 2  }
   }
 
  
+
+
+  export const save = () => { 
+
+  }
