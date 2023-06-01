@@ -16,7 +16,7 @@ export default function Header() {
           <div className="hidden md:block">
             <ul className="flex  text-xl">
               <li className="px-8">
-                <Link href="/index">
+                <Link href="#">
                   Home
                 </Link>
               </li>
