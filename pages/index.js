@@ -7,30 +7,34 @@ import Name from '../components/Name'
 import Comment from '../components/Comment'
 import SecondSec from '../components/SecondSec'
 import ImageSlider from '../components/ImageSlider'
+import Slider from './Slider'
 
 export const comfortaa = Comfortaa({
-  subsets:[ 'latin'],
-  weight: ['300','400','500','600']
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600']
 })
 
-export default function Home({data}) {
+export default function Home({ data, sliderData }) {
   return (
     <main className={`${comfortaa.className}`}>
       <Header />
       <FirstSection />
-    
-      <SecondSec data={data}/>
+      <SecondSec data={data} />
+      <Slider data={sliderData} />
       <Footer />
-
     </main>
   )
 }
 
 export async function getServerSideProps() {
-  // Fetch data from external API
+  // Fetch data from external API for data prop
   const res = await fetch(`http://localhost:3000/api/testimonials/64622888290d0bd251bff7a8`)
   const data = await res.json()
 
+  // Fetch data from external API for sliderData prop
+  const sliderRes = await fetch(`http://localhost:3000/api/homeslider/647a1bafb0809013fa9aeef8`)
+  const sliderData = await sliderRes.json()
+
   // Pass data to the page via props
-  return { props: { data } }
+  return { props: { data, sliderData } }
 }

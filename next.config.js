@@ -17,3 +17,7 @@ module.exports = {
   },
   reactStrictMode: true,
 }
+module.exports = {
+  // ...
+  unstable_runtimeJS: false,
+}
