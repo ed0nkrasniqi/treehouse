@@ -9,11 +9,11 @@ export default function SecondSec ({data}) {
 
 <div className=' bg-[#f8f8f6] lg:px-32 p-5 py-16'>
 
-<div className="">
+<div className="flex justify-center">
       <div className="grid md:grid-cols-2 lg:grid-cols-4  gap-4">
         
         <div className="relative  border-[0.1rem] sm:m-0 mb-5 bg-[#f8f8f6] border-gray-300 shadow-sm hover:border-gray-500 hover:shadow-lg rounded-2xl">
-          <img className="section-house   rounded-t-2xl" src="/greenview.jpg" alt="Greenview" width={450} height={270} />
+          <img className="section-house max-w-full  rounded-t-2xl" src="/greenview.jpg" alt="Greenview" width={450} height={270} />
           <div className="p-2 rounded-2xl">
           <div>
             <p className="text-center">Hopkins</p>

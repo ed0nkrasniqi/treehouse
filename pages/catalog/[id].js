@@ -79,7 +79,6 @@ export default function Projects({data}) {
 })}
 
 
-<p className='pl-5 mt-10 sm:text-3xl text-xl'>Tour This House</p>
 <div className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
   
   {data.moreImages.map((more, index) => {

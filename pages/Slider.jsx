@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 function Slider({ data }) {
   const [currentImage, setCurrentImage] = useState(0);
@@ -24,72 +25,136 @@ function Slider({ data }) {
         </div>
       );
     }
-    return "";
+    return '';
   };
-   const getMoreImageText = () => {
-     if (data && data.firstsliderImages && data.firstsliderImages.length > 0) {
-       const currentImageData = data.firstsliderImages[currentImage];
-       return (
-          <div className=" border-2 bg-white shadow-lg border-zinc-400 rounded-xl p-5 justify-between">
-          <div className=" text-3xl text-center border-b-2 mb-10 pb-5">{currentImageData.houseName}</div>
+
+  const getMoreImageText = () => {
+    if (data && data.firstsliderImages && data.firstsliderImages.length > 0) {
+      const currentImageData = data.firstsliderImages[currentImage];
+      return (
+        <motion.div
+          className="border-2 bg-white shadow-lg border-zinc-400 rounded-xl p-5 justify-between"
+          initial="hidden"
+          animate="visible"
+          variants={slideVariants}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="text-3xl text-center border-b-2 mb-10 pb-5">
+            {currentImageData.houseName}
+          </div>
           <div className="flex">
-          <div className="text-white bg-green-900 text-xl text-center  rounded-2xl py-1 sm:px-5 px-4 mr-5">{currentImageData.houseStyle}</div>
-          <div className="text-white bg-green-900 text-xl text-center rounded-2xl py-1 sm:px-5 px-4">{currentImageData.houseSq}m²</div>
+            <div className="text-white bg-green-900 text-xl text-center  rounded-xl py-1 sm:px-5 px-4 mr-5">
+              {currentImageData.houseStyle}
+            </div>
+            <div className="text-white bg-green-900 text-xl text-center rounded-xl py-1 sm:px-5 px-4">
+              {currentImageData.houseSq}m²
+            </div>
           </div>
-          <div className="flex flex-col">          
-          <div className="text-xl font-medium mt-5">Stories: {currentImageData.hStories}</div>
-          <div className="text-xl font-medium mt-3">Bedrooms: {currentImageData.hBedrooms}</div>
-          <div className="text-xl font-medium mt-3">Bathrooms: {currentImageData.hBathrooms}</div>
-          <div className="text-xl font-medium mt-3">Garage: {currentImageData.hasGarage}</div>
-          </div>           
+          <div className="flex flex-col">
+            <div className="text-xl font-medium mt-5">
+              Stories: {currentImageData.hStories}
+            </div>
+            <div className="text-xl font-medium mt-3">
+              Bedrooms: {currentImageData.hBedrooms}
+            </div>
+            <div className="text-xl font-medium mt-3">
+              Bathrooms: {currentImageData.hBathrooms}
+            </div>
+            <div className="text-xl font-medium mt-3">
+              Garage: {currentImageData.hasGarage}
+            </div>
           </div>
-       );
-     }
-     return "";
-   };
+        </motion.div>
+      );
+    }
+    return '';
+  };
+
+  const slideVariants = {
+    hidden: { x: '-50%', opacity: 0 },
+    visible: { x: 0, opacity: 1 },
+    prev: { x: '100%', opacity: 0 },
+  };
 
   return (
-    <>
-      <div className="lg:p-32 p-5 bg-[#f8f8f6]">
-        <div className="mb-20">
-          <h3 className="text-green-900 text-4xl">Nulla suscipit risus ut urna fermentum, ac ullamcorper mi malesuada</h3>
-          <p className="text-xl">Praesent volutpat lorem in dolor consectetur, ut interdum nibh viverra</p>
-        </div>
-        <div className="sm:flex justify-between">
-          <div className="border-2 p-1 sm:w-[500px] shadow-lg lg:m-0 mb-5 border-zinc-400 rounded-xl">
-            <img
-              className="image-slider2 rounded-t-xl h-[300px]"
-              src={data?.firstsliderImages[currentImage].hsImage.url}
-              width={500}
-            />
-            {getCurrentImageText()}
-          </div>
-          <div className="sm:w-[450px] sm:ml-5 lg:mx-20 ">{getMoreImageText()}</div>
-
-          
-           
-        </div>
-
-        <div className="flex justify-center  mt-10">
-          <button
-            className="prev-button bg-green-900 text-center text-white py-2 px-10 rounded-lg mr-2"
-            onClick={previousImage}
-          >
-            Prev
-          </button>
-          <button
-            className="next-button bg-green-900 text-center text-white py-2 px-10 rounded-lg mr-2"
-            onClick={nextImage}
-          >
-            Next
-          </button>
-        </div>
+    <div className="lg:p-32 p-5 bg-[#f8f8f6]">
+      <motion.div
+        className="mb-20 text-center"
+        initial="hidden"
+        animate="visible"
+        variants={slideVariants}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.h3
+          className="text-green-900 lg:text-4xl text-2xl mb-5"
+          variants={slideVariants}
+        >
+          Nulla suscipit risus ut urna fermentum, ac ullamcorper mi malesuada
+        </motion.h3>
+        <motion.p className="lg:text-xl" variants={slideVariants}>
+          Praesent volutpat lorem in dolor consectetur, ut interdum nibh viverra
+        </motion.p>
+      </motion.div>
+      <div className="sm:flex justify-center">
+        <motion.div
+          className="border-2 p-1 sm:w-[500px]  shadow-lg lg:m-0 mb-5 border-zinc-400 rounded-xl"
+          initial="hidden"
+          animate="visible"
+          variants={slideVariants}
+          transition={{ duration: 0.8 }}
+          key={currentImage}
+        >
+          <img
+            className="image-slider2 rounded-t-xl h-[300px]"
+            src={data?.firstsliderImages[currentImage].hsImage.url}
+            width={500}
+          />
+          {getCurrentImageText()}
+        </motion.div>
+        <motion.div
+          className="sm:w-[450px]  lg:ml-32"
+          initial="hidden"
+          animate="visible"
+          variants={slideVariants}
+          transition={{ duration: 0.5 }}
+        >
+          {getMoreImageText()}
+        </motion.div>
       </div>
-    </>
+      <div className="flex justify-center mt-10">
+        <motion.button
+          className="prev-button border-2 border-green-900 bg-green-900 hover:bg-green-950 hover:border-green-950 text-center text-white py-2 px-10 rounded-lg mr-2"
+          onClick={previousImage}
+          initial="hidden"
+          animate="visible"
+          variants={slideVariants}
+          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-left"><path d="M6 8L2 12L6 16"/><path d="M2 12H22"/></svg>
+        </motion.button>
+        <motion.button
+          className="next-butt border-green-900 border-2 hover:bg-green-950 hover:border-green-950 bg-green-900 text-center text-white py-2 px-10 rounded-xl mr-2"
+          onClick={nextImage}
+          initial="hidden"
+          animate="visible"
+          variants={slideVariants}
+          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
+        </motion.button>
+      </div>
+    </div>
   );
 }
 
 export default Slider;
+
+
+
 
 
 export async function getStaticProps() {

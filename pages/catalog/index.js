@@ -11,7 +11,7 @@ export const comfortaa = Comfortaa({
 });
 
 const Catalog = ({ data }) => {
- 
+
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedBedrooms, setSelectedBedrooms] = useState([]);
   const [selectedBathrooms, setSelectedBathrooms] = useState([]);
@@ -51,7 +51,7 @@ const Catalog = ({ data }) => {
   };
  
   const filteredProducts = data.docs.filter((product) => {
-    const categoryMatch = !selectedCategory || product.categories.includes(selectedCategory);
+    const categoryMatch = !selectedCategory || product?.style?.includes(selectedCategory);
     const bedroomsMatch =
       selectedBedrooms.length === 0 || selectedBedrooms.includes(product.bedroomsNumber);
     const bathroomsMatch =
@@ -60,21 +60,21 @@ const Catalog = ({ data }) => {
     const garageMatch = !selectedGarage || product.garage === selectedGarage;
     return categoryMatch && bedroomsMatch && bathroomsMatch && storiesMatch && garageMatch;
   });
-
+  console.warn('catalog',filteredProducts)
   return (
     <>
       <Header />
-      <div className={`${comfortaa.className} sm:flex`}>
-        <div className="float-left pb-10  mr-10 rounded-r-xl bg-[#f8f8f6] ">
+      <div className={`${comfortaa.className} lg:flex justify-center`}>
+        <div className="lg:float-left pb-10  mr-10 rounded-r-xl lg:bg-[#f8f8f6] ">
           <div className="my-10 pb-10 border-b-2 mx-10 border-zinc-300 ">
-            <h3 className="text-2xl">Catalog Filters</h3>
+            <h3 className="text-2xl">Filters</h3>
           </div>
 
-          <div className="mx-10 pb-5 ">
-            <h4 className="text-xl mb-2">Bedrooms</h4>
+          <div className="lg:mx-10 mx-5 pb-5 ">
+            <h4 className="text-lg mb-2">Bedrooms</h4>
             <div className="flex">
               <button
-                className={`py-2 px-4 rounded-xl ${
+                className={`py-0 px-3 rounded-xl ${
                   selectedBedrooms.includes(2) ? 'bg-green-900 text-white' : 'bg-white border-2 border-green-900'
                 }`}
                 onClick={() => handleBedroomsChange(2)}
@@ -100,8 +100,8 @@ const Catalog = ({ data }) => {
             </div>
           </div>
 
-          <div className="mx-10 pb-5">
-            <h4 className="text-xl mb-2">Bathrooms</h4>
+          <div className="lg:mx-10 mx-5 pb-5">
+            <h4 className="text-lg mb-2">Bathrooms</h4>
             <div className="flex ">
               <button
                 className={`py-2 px-4 rounded-xl ${
@@ -130,8 +130,8 @@ const Catalog = ({ data }) => {
             </div>
           </div>
 
-          <div className="mx-10 pb-5">
-            <h4 className="text-xl mb-2">Stories</h4>
+          <div className="lg:mx-10 mx-5 pb-5">
+            <h4 className="text-lg mb-2">Stories</h4>
             <div className="flex">
               <button
                 className={`py-2 px-4 rounded-xl ${
@@ -160,8 +160,8 @@ const Catalog = ({ data }) => {
             </div>
           </div>
 
-          <div className="mx-10 pb-10 border-b-2 border-zinc-300">
-            <h4 className="text-xl mb-2">Garage</h4>
+          <div className="lg:mx-10 mx-5 pb-10 border-b-2 border-zinc-300">
+            <h4 className="text-lg mb-2">Garage</h4>
             <div className="flex">
               <button
                 className={`py-2 px-4 rounded-xl ${
@@ -182,17 +182,17 @@ const Catalog = ({ data }) => {
             </div>
           </div>
 
-          <div className="m-10">
-            <h4 className="text-xl mb-5">Style Category</h4>
+          <div className="lg:m-10 mx-5">
+            <h4 className="text-lg my-5">Style</h4>
             <div className="flex ">
               <div className="mr-5  rounded-xl border-[2px] border-zinc-300 hover:border-zinc-400">
                 <img
                   src="catalog1.jpg"
-                  alt="Modern House"
+                  alt="Modern"
                   className={`rounded-t-xl ${
-                    selectedCategory.includes("Modern House") ? "border-green-900" : ""
+                    selectedCategory.includes("Modern") ? "border-green-900" : ""
                   }`}
-                  onClick={() => handleCategoryChange("Modern House")}
+                  onClick={() => handleCategoryChange("Modern")}
                   style={{ width: "200px", height: "120px", cursor: "pointer" }}
                 />
                 <div className="bg-white rounded-b-lg">
@@ -202,11 +202,11 @@ const Catalog = ({ data }) => {
               <div className="rounded-xl border-2 shadow-sm border-zinc-300 hover:border-zinc-400">
                 <img
                   src="catalog2.jpg"
-                  alt="Classic House"
+                  alt="Classic"
                   className={`rounded-t-xl ${
-                    selectedCategory.includes("Classic House") ? "border-green-900" : ""
+                    selectedCategory.includes("Classic") ? "border-green-900" : ""
                   }`}
-                  onClick={() => handleCategoryChange("Classic House")}
+                  onClick={() => handleCategoryChange("Classic")}
                   style={{ width: "200px", height: "120px", cursor: "pointer" }}
                 />
                 <div className="bg-white rounded-b-lg">
@@ -217,9 +217,9 @@ const Catalog = ({ data }) => {
           </div>
         </div>
 
-        <div className="bg-[#f8f8f6] rounded-xl float-right sm:w-3/4">
-          <div className="grid sm:grid-cols-2 gap-4 px-10 py-8">
-            {data?.docs?.map((product) => (
+        <div className="lg:bg-[#f8f8f6] rounded-xl lg:float-right lg::w-3/4">
+          <div className="grid lg:grid-cols-2 gap-4 lg:px-10 px-5 py-8">
+            {filteredProducts?.map((product) => (
               <div className="border-2 rounded-xl hover:border-zinc-400" key={product.id}>
                 <Link href={`/catalog/${product?.id}`}>
                   <img
@@ -231,11 +231,9 @@ const Catalog = ({ data }) => {
 
                 <div className="flex justify-between items-center p-2">
                   <h3 className="text-xl font-bold">{product?.prTitle}</h3>
-                  <Link className="text-xl border-2 rounded-xl px-2 py-[6px] border-green-900 hover:text-white font-bold hover:bg-green-900" href={`/catalog/${product?.id}`}>
-                    
-                      View Details
-                    
-                  </Link>
+                  <p className='opacity-80'>
+                    {product?.houseSquare  ?? ''}m²
+                  </p>
                 </div>
               </div>
             ))}
@@ -243,6 +241,8 @@ const Catalog = ({ data }) => {
         </div>
       </div>
       {comfortaa.styles}
+
+      <Footer/>
     </>
   );
 };

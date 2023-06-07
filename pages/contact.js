@@ -15,7 +15,7 @@ export default function Contact() {
 
 
      <div className="background"></div>
-     <div className="lg:flex lg:flex-row items-center lg:p-0 p-5  justify-center sm:min-h-screen ">
+     <div className="lg:flex lg:flex-row items-center lg:p-0 p-5   justify-center sm:min-h-screen ">
     <div className="lg:w-1/2 relative">
       <div className="relative">
       
