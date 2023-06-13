@@ -1,6 +1,7 @@
 
 
 import Link from "next/link"
+import ContactUs from "./Contactus"
 
 
 export default function SecondSec ({data}) {
@@ -133,17 +134,7 @@ export default function SecondSec ({data}) {
 
 
 
-<div className="">
-<div className="sm:p-32 p-10 bg-[#f8f8f6]">
-  <h2 className="sm:text-7xl text-4xl sm:mb-20 mb-10 text-green-900">Contact Us</h2>
-  <div className="flex items-center justify-between border-2 border-zinc-500 rounded-full pl-10 sm:pr-3 pr-1 sm:py-2 py-1">
-    <div>
-      <h3 className="sm:text-2xl text-zinc-500">Have a project in mind?</h3>
-    </div>
-    <Link className="border-2 border-green-900 sm:py-5 py-3 sm:px-10 px-2 rounded-full bg-green-900 text-white font-bold" href="/contact">Contact</Link>
-  </div>
-</div>
-</div>
+<ContactUs />
 
       </main>
     )

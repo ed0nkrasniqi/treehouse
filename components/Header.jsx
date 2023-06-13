@@ -25,7 +25,7 @@ export default function Header() {
           <div className="hidden md:block">
             <ul className="flex  text-xl">
               <li className="px-8">
-                <Link href="#">Home</Link>
+                <Link href="/">Home</Link>
               </li>
               <li className="px-8">
                 <Link href="/about">About</Link>
@@ -92,7 +92,7 @@ export default function Header() {
           <div className="md:hidden">
             <ul className="flex flex-col text-xl">
               <li className="md:px-8 pl-2 ">
-                <Link href="#">Home</Link>
+                <Link href="/">Home</Link>
               </li>
               <li className="md:px-8 pl-2 pt-2">
                 <Link href="/about">About</Link>

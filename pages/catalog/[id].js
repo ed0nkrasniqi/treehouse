@@ -1,13 +1,13 @@
 import { Comfortaa } from 'next/font/google'
-import ProjectTitle from '../../components/ProjectTitle'
 import ImageSlider from '../../components/ImageSlider'
 import BedroomsNum from '../../components/BedroomsNum'
 import BathroomsNum from '../../components/BathroomsNum'
 import Header from '../../components/Header'
 import Link from 'next/link'
 import Footer from '../../components/Footer'
-import FloorTitle from '../../components/FloorTitle'
 import SquareMetres from '../../components/SquareMetres'
+import ContactUs from '@/components/Contactus'
+import Contact from '../contact'
 
 
 export const comfortaa = Comfortaa({
@@ -69,8 +69,8 @@ export default function Projects({data}) {
 
 {data.floorImages.map((floor, index)=>{
   return (
-    <div key={floor.id} className='flex border-b-2 justify-center'>
-<div className='border-2 border-zinc-400 shadow-xl rounded-xl sm:p-10 p-5 m-10'>
+    <div key={floor.id} className='flex bg-[#f8f8f6]  justify-center'>
+<div className='border-2 border-zinc-200 shadow-lg rounded-xl bg-white sm:p-10 p-5 m-10'>
     <h4 className='text-center sm:py-10 sm:text-3xl text-xl font-bold'>{floor.fltitle}</h4>
   <img src={floor.flimage.url} />
 </div>
@@ -78,13 +78,14 @@ export default function Projects({data}) {
   )
 })}
 
+<ContactUs />
 
 <div className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
   
   {data.moreImages.map((more, index) => {
     return (
       <>
-      <div key={more.id} className='flex  justify-center sm:w-1/2'>
+      <div key={more.id} className='flex   justify-center sm:w-1/2'>
         <div className='lg:p-5  px-5 py-2'>
           <img className='sm:rounded-3xl rounded-xl' src={more.galleryImages.url} />
         </div>
@@ -95,8 +96,6 @@ export default function Projects({data}) {
 </div>
 </>
     
-
-
 
       
       <Footer />

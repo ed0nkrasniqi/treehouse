@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+
 import ProjectTitle from "./ProjectTitle";
 
 function ImageSlider({ data }) {
@@ -31,14 +31,12 @@ function ImageSlider({ data }) {
         <p className="font-medium sm:ml-10 ml-5 sm:text-2xl">{getCurrentImageText()}</p>
       </div> */}
       <div className="slider-content flex justify-center h-full">
-        <motion.img
+        <img
           className="h-full w-full object-contain"
           src={data?.prImages[currentImageIndex].image.url}
           alt=""
           key={currentImageIndex}
-          initial={{ opacity: 0.3 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+
         />
 
         <button

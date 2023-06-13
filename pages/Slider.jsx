@@ -39,28 +39,28 @@ function Slider({ data }) {
           variants={slideVariants}
           transition={{ duration: 0.5 }}
         >
-          <div className="text-3xl text-center border-b-2 mb-10 pb-5">
+          <div className="lg:text-3xl text-xl text-center border-b-2 mb-10 pb-5">
             {currentImageData.houseName}
           </div>
           <div className="flex">
-            <div className="text-white bg-green-900 text-xl text-center  rounded-xl py-1 sm:px-5 px-4 mr-5">
+            <div className="text-white bg-green-900 lg:text-xl text-center  rounded-xl py-1 sm:px-5 px-4 mr-5">
               {currentImageData.houseStyle}
             </div>
-            <div className="text-white bg-green-900 text-xl text-center rounded-xl py-1 sm:px-5 px-4">
+            <div className="text-white bg-green-900 lg:text-xl text-center rounded-xl py-1 sm:px-5 px-4">
               {currentImageData.houseSq}m²
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="text-xl font-medium mt-5">
+            <div className="lg:text-xl font-medium mt-5">
               Stories: {currentImageData.hStories}
             </div>
-            <div className="text-xl font-medium mt-3">
+            <div className="lg:text-xl font-medium mt-3">
               Bedrooms: {currentImageData.hBedrooms}
             </div>
-            <div className="text-xl font-medium mt-3">
+            <div className="lg:text-xl font-medium mt-3">
               Bathrooms: {currentImageData.hBathrooms}
             </div>
-            <div className="text-xl font-medium mt-3">
+            <div className="lg:text-xl font-medium mt-3">
               Garage: {currentImageData.hasGarage}
             </div>
           </div>
@@ -77,7 +77,7 @@ function Slider({ data }) {
   };
 
   return (
-    <div className="lg:p-32 p-5 bg-[#f8f8f6]">
+    <div className="lg:p-32 px-5 py-10 bg-[#f8f8f6]">
       <motion.div
         className="mb-20 text-center"
         initial="hidden"
@@ -97,7 +97,7 @@ function Slider({ data }) {
       </motion.div>
       <div className="sm:flex justify-center">
         <motion.div
-          className="border-2 p-1 sm:w-[500px]  shadow-lg lg:m-0 mb-5 border-zinc-400 rounded-xl"
+          className="border-2 mr-2  sm:w-[500px]  shadow-lg lg:m-0 mb-5 border-zinc-400 rounded-xl"
           initial="hidden"
           animate="visible"
           variants={slideVariants}

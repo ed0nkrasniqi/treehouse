@@ -11,6 +11,7 @@ export const comfortaa = Comfortaa({
 });
 
 const Catalog = ({ data }) => {
+  console.log(data)
 
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedBedrooms, setSelectedBedrooms] = useState([]);
@@ -52,10 +53,9 @@ const Catalog = ({ data }) => {
  
   const filteredProducts = data.docs.filter((product) => {
     const categoryMatch = !selectedCategory || product?.style?.includes(selectedCategory);
-    const bedroomsMatch =
-      selectedBedrooms.length === 0 || selectedBedrooms.includes(product.bedroomsNumber);
-    const bathroomsMatch =
-      selectedBathrooms.length === 0 || selectedBathrooms.includes(product.bathrooms);
+
+    const bedroomsMatch = selectedBedrooms.length === 0 || selectedBedrooms.includes(product.bedroomsNumber);
+    const bathroomsMatch = selectedBathrooms.length === 0 || selectedBathrooms.includes(product.bathrooms);
     const storiesMatch = selectedStories.length === 0 || selectedStories.includes(product.stories);
     const garageMatch = !selectedGarage || product.garage === selectedGarage;
     return categoryMatch && bedroomsMatch && bathroomsMatch && storiesMatch && garageMatch;
@@ -64,9 +64,9 @@ const Catalog = ({ data }) => {
   return (
     <>
       <Header />
-      <div className={`${comfortaa.className} lg:flex justify-center`}>
+      <div className={`${comfortaa.className} lg:flex `}>
         <div className="lg:float-left pb-10  mr-10 rounded-r-xl lg:bg-[#f8f8f6] ">
-          <div className="my-10 pb-10 border-b-2 mx-10 border-zinc-300 ">
+          <div className="my-10 pb-10 border-b-2 lg:mx-10 mx-5 border-zinc-300 ">
             <h3 className="text-2xl">Filters</h3>
           </div>
 
