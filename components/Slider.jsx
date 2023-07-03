@@ -1,16 +1,23 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useInView } from "react-intersection-observer"
 
 function Slider({ data }) {
   const [currentImage, setCurrentImage] = useState(0);
-
+   const [aX , setAX] = useState(10);
   const previousImage = () => {
+    setAX(-10);
     setCurrentImage(
       currentImage === 0 ? data?.firstsliderImages.length - 1 : currentImage - 1
     );
+    
   };
 
+
+   
+  
   const nextImage = () => {
+    setAX(10);
     setCurrentImage(
       currentImage === data?.firstsliderImages.length - 1 ? 0 : currentImage + 1
     );
@@ -31,15 +38,18 @@ function Slider({ data }) {
   const getMoreImageText = () => {
     if (data && data.firstsliderImages && data.firstsliderImages.length > 0) {
       const currentImageData = data.firstsliderImages[currentImage];
+
+      
+
       return (
         <motion.div
-          className="border-2 bg-white shadow-lg border-zinc-400 rounded-xl p-5 justify-between"
+          className="border-2 bg-white shadow-lg border-zinc-400 rounded-xl px-5  justify-between"
           initial="hidden"
           animate="visible"
           variants={slideVariants}
           transition={{ duration: 0.5 }}
         >
-          <div className="lg:text-3xl text-xl text-center border-b-2 mb-10 pb-5">
+          <div className="lg:text-3xl text-xl my-10 text-center border-b-2  pb-5">
             {currentImageData.houseName}
           </div>
           <div className="flex">
@@ -60,7 +70,7 @@ function Slider({ data }) {
             <div className="lg:text-xl font-medium mt-3">
               Bathrooms: {currentImageData.hBathrooms}
             </div>
-            <div className="lg:text-xl font-medium mt-3">
+            <div className="lg:text-xl font-medium mt-3 mb-3">
               Garage: {currentImageData.hasGarage}
             </div>
           </div>
@@ -71,13 +81,22 @@ function Slider({ data }) {
   };
 
   const slideVariants = {
-    hidden: { x: '-50%', opacity: 0 },
+    hidden: { x: -10, opacity: 0 },
     visible: { x: 0, opacity: 1 },
-    prev: { x: '100%', opacity: 0 },
+    prev: { x: 10, opacity: 0 },
   };
 
+    const[ref, inView] = useInView({
+  threshold: 0.5
+});
+
+
   return (
-    <div className="lg:p-32 px-5 py-10 bg-[#f8f8f6]">
+    <motion.div 
+    ref={ref}
+    initial={{opacity : 0}}
+    animate ={inView && {opacity: 1 , transition : {duration: 0.5 }}}
+    className="lg:p-32 px-5 py-20 bg-[#f8f8f6]">
       <motion.div
         className="mb-20 text-center"
         initial="hidden"
@@ -147,7 +166,7 @@ function Slider({ data }) {
           <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
         </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

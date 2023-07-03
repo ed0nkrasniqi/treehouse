@@ -33,39 +33,8 @@ export default function Header() {
               <li className="px-8">
                 <Link href="/catalog">Catalog</Link>
               </li>
-              <li className="px-8 relative">
-                <button className="flex items-center" onClick={toggleResources}>
-                  <span className="mr-1">Resources</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={`h-4 w-4 transform ${
-                      isResourcesOpen ? "rotate-0" : "-rotate-90"
-                    }`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                {isResourcesOpen && (
-                  <div className="absolute bg-white py-2 rounded-lg shadow-md z-50">
-                    <Link className="block px-4 py-2" href="/">
-                      Resource 1
-                    </Link>
-                    <Link className="block px-4 py-2" href="/">
-                      Resource 2
-                    </Link>
-                    <Link className="block px-4 py-2" href="/">
-                      Resource 3
-                    </Link>
-                  </div>
-                )}
+              <li className="px-8">
+                <Link href="/blog">Blog</Link>
               </li>
             </ul>
           </div>
@@ -91,48 +60,17 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden">
             <ul className="flex flex-col text-xl">
-              <li className="md:px-8 pl-2 ">
+              <li className="md:px-8 pl-5 ">
                 <Link href="/">Home</Link>
               </li>
-              <li className="md:px-8 pl-2 pt-2">
+              <li className="md:px-8 pl-5 pt-2">
                 <Link href="/about">About</Link>
               </li>
-              <li className="md:px-8 pl-2 pt-2">
+              <li className="md:px-8 pl-5 pt-2">
                 <Link href="/catalog">Catalog</Link>
               </li>
-              <li className="md:px-8 pl-2 pt-2 relative">
-                <button className="flex items-center" onClick={toggleResources}>
-                  <span className="mr-1">Resources</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={`h-4 w-4 transform ${
-                      isResourcesOpen ? "rotate-0" : "-rotate-90"
-                    }`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                {isResourcesOpen && (
-                  <div className="absolute bg-white py-2 rounded-lg shadow-md z-50">
-                    <Link className="block px-4 py-2" href="/">
-                      Resource 1
-                    </Link>
-                    <Link className="block px-4 py-2" href="/">
-                      Resource 2
-                    </Link>
-                    <Link className="block px-4 py-2" href="/">
-                      Resource 3
-                    </Link>
-                  </div>
-                )}
+              <li className="md:px-8 pl-5 pt-2">
+                <Link href="/blog">Blog</Link>
               </li>
             </ul>
           </div>

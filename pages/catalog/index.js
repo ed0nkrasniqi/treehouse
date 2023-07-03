@@ -10,7 +10,7 @@ export const comfortaa = Comfortaa({
   weight: ['300', '400', '500', '600']
 });
 
-const Catalog = ({ data }) => {
+const Catalog = ({ data, footerData }) => {
   console.log(data)
 
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -64,8 +64,8 @@ const Catalog = ({ data }) => {
   return (
     <>
       <Header />
-      <div className={`${comfortaa.className} lg:flex `}>
-        <div className="lg:float-left pb-10  mr-10 rounded-r-xl lg:bg-[#f8f8f6] ">
+      <div className={`${comfortaa.className} lg:flex justify-center `}>
+        <div className="lg:float-left pb-10  mr-10 rounded-r-xl  ">
           <div className="my-10 pb-10 border-b-2 lg:mx-10 mx-5 border-zinc-300 ">
             <h3 className="text-2xl">Filters</h3>
           </div>
@@ -217,41 +217,51 @@ const Catalog = ({ data }) => {
           </div>
         </div>
 
-        <div className="lg:bg-[#f8f8f6] rounded-xl lg:float-right lg::w-3/4">
-          <div className="grid lg:grid-cols-2 gap-4 lg:px-10 px-5 py-8">
-            {filteredProducts?.map((product) => (
-              <div className="border-2 rounded-xl hover:border-zinc-400" key={product.id}>
-                <Link href={`/catalog/${product?.id}`}>
-                  <img
-                    src={product.prImages[0]?.image?.url}
-                    alt={product?.prTitle}
-                    className="w-full rounded-t-xl h-96 object-cover"
-                  />
-                </Link>
+        <div className=" rounded-xl lg:float-right lg::w-3/4">
+          {filteredProducts.length === 0 ? (
+            <div className="flex justify-center items-center h-full">
+              <p className="lg:text-6xl m-2 text-3xl text-center">Sorry, there isn't a house with these requirements</p>
+            </div>
+          ) : (
+            <div className="grid lg:grid-cols-2 gap-4 lg:px-10 px-5 py-8">
+              {filteredProducts?.map((product) => (
+                <div className="border-2 rounded-xl hover:border-zinc-400" key={product.id}>
+                  <Link href={`/catalog/${product?.id}`}>
+                    <img
+                      src={product.prImages[0]?.image?.url}
+                      alt={product?.prTitle}
+                      className="w-full rounded-t-xl h-96 object-cover"
+                    />
+                  </Link>
 
-                <div className="flex justify-between items-center p-2">
-                  <h3 className="text-xl font-bold">{product?.prTitle}</h3>
-                  <p className='opacity-80'>
-                    {product?.houseSquare  ?? ''}m²
-                  </p>
+                  <div className="flex justify-between items-center p-2">
+                    <h3 className="text-xl font-bold">{product?.prTitle}</h3>
+                    <p className='opacity-80'>
+                      {product?.houseSquare  ?? ''}m²
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
-      {comfortaa.styles}
-
-      <Footer/>
+      <Footer data={footerData}/>
     </>
   );
 };
 
 export default Catalog;
 
+
 export async function getStaticProps() {
   const res = await fetch(`http://localhost:3000/api/projects/`);
   const data = await res.json();
 
-  return { props: { data } };
+  const footerRes = await fetch(
+    "http://localhost:3000/api/globals/footer"
+);
+  const footerData = await footerRes.json();
+
+  return { props: { data, footerData } };
 }

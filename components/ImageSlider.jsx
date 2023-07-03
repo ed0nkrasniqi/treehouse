@@ -17,12 +17,12 @@ function ImageSlider({ data }) {
     );
   };
 
-  const getCurrentImageText = () => {
-    if (data && data.prImages && data.prImages.length > 0) {
-      return data.prImages[currentImageIndex].imageDesc;
-    }
-    return "";
-  };
+  // const getCurrentImageText = () => {
+  //   if (data && data.prImages && data.prImages.length > 0) {
+  //     return data.prImages[currentImageIndex].imageDesc;
+  //   }
+  //   return "";
+  // };
 
   return (
     <div className="image-slider h-full w-full relative">

@@ -54,7 +54,19 @@
     height: 600px;
     object-fit: cover;
   }
+  .blog-images{
+    width: 400px;
+    height: 300px;
+  }
+  .hover-div{
+    width: 400px;
+    object-fit: cover;
+  }
+.bl-images{
+  width: 1000px;
+  height: 600px;
+  object-fit: cover;
+}
 
-  
   
   

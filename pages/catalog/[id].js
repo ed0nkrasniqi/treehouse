@@ -7,7 +7,8 @@ import Link from 'next/link'
 import Footer from '../../components/Footer'
 import SquareMetres from '../../components/SquareMetres'
 import ContactUs from '@/components/Contactus'
-import Contact from '../contact'
+import { useInView } from "react-intersection-observer"
+import { motion } from 'framer-motion'
 
 
 export const comfortaa = Comfortaa({
@@ -15,7 +16,15 @@ export const comfortaa = Comfortaa({
     weight: ['300','400','500','600']
   })
 
-export default function Projects({data}) {
+export default function Projects({data, footerData}) {
+
+    const [ref, inView] = useInView({
+      threshold: 0.5,
+    });
+
+    const [imgRef, inViewImg] = useInView({
+      threshold: 0.3
+    });
     
     console.warn('project', data);
     return (
@@ -31,7 +40,11 @@ export default function Projects({data}) {
       </div>
 
 {/* ///// */}
-<div className='bg-zinc-100 lg:flex justify-center  m-10 rounded-xl lg:py-10 p-5'>
+<motion.div 
+ref={ref}
+initial={{opacity:0}}
+animate={inView && {opacity:1, transition:{ duration: 0.5}}}
+className='bg-zinc-100 lg:flex justify-center  m-10 rounded-xl lg:py-10 p-5'>
 
 <div className='lg:pl-10  py-10 lg:pr-32'>
 <div>
@@ -44,7 +57,7 @@ export default function Projects({data}) {
 </div>
 
 
-<div className='bg-white lg:pr-[380px]  lg:pl-10  py-10 px-5 rounded-xl'>
+<div  className='bg-white lg:pr-[380px]  lg:pl-10  py-10 px-5 rounded-xl'>
         <h3 className='sm:text-3xl text-xl font-bold mb-10'>Featured Highlights</h3>
        <BedroomsNum number= {data.bedroomsNumber}/>
        <BathroomsNum number={data.bathroomsNumber} />
@@ -63,7 +76,7 @@ export default function Projects({data}) {
     </div>
 </div>
 </div>
-</div>
+</motion.div>
 {/* ////// */}
 
 
@@ -80,12 +93,17 @@ export default function Projects({data}) {
 
 <ContactUs />
 
-<div className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
+<motion.div 
+       ref={imgRef}
+       initial={{ opacity: 0 }}
+       animate={inViewImg && { opacity: 1, transition: { duration: 0.5,} }}
+className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
   
   {data.moreImages.map((more, index) => {
     return (
       <>
-      <div key={more.id} className='flex   justify-center sm:w-1/2'>
+      <div
+      key={more.id} className='flex   justify-center sm:w-1/2'>
         <div className='lg:p-5  px-5 py-2'>
           <img className='sm:rounded-3xl rounded-xl' src={more.galleryImages.url} />
         </div>
@@ -93,12 +111,12 @@ export default function Projects({data}) {
       </>
     );
   })}
-</div>
+</motion.div>
 </>
     
 
       
-      <Footer />
+      <Footer data={footerData}/>
 </main>
     )
   }
@@ -123,8 +141,12 @@ export default function Projects({data}) {
     const res = await fetch(`http://localhost:3000/api/projects/${params.id}`)
     const data = await res.json()
   
+    const footerRes = await fetch(
+      "http://localhost:3000/api/globals/footer"
+    );
+    const footerData = await footerRes.json();
     // Pass data to the page via props
-    return { props: { data } , revalidate : 2  }
+    return { props: { data, footerData } , revalidate : 2  }
   }
 
  
