@@ -178,7 +178,7 @@ export default Slider;
 
 export async function getStaticProps() {
   const res = await fetch(
-    "http://localhost:3000/api/homeslider/647a1bafb0809013fa9aeef8"
+    "https://cms.treehouse-ks.eu/api/homeslider/647a1bafb0809013fa9aeef8"
   );
   const data = await res.json();
 

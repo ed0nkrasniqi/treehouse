@@ -255,11 +255,11 @@ export default Catalog;
 
 
 export async function getStaticProps() {
-  const res = await fetch(`http://localhost:3000/api/projects/`);
+  const res = await fetch(`https://cms.treehouse-ks.eu/api/projects/`);
   const data = await res.json();
 
   const footerRes = await fetch(
-    "http://localhost:3000/api/globals/footer"
+    "https://cms.treehouse-ks.eu/api/globals/footer"
 );
   const footerData = await footerRes.json();
 

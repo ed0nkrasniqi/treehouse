@@ -125,7 +125,7 @@ className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
  
   export async function getStaticPaths() { 
     
-    const res = await fetch(`http://localhost:3000/api/projects/`);
+    const res = await fetch(`https://cms.treehouse-ks.eu/api/projects/`);
     const data =  await res.json();
 
    const paths =  data?.docs?.map((doc) => ({
@@ -138,11 +138,11 @@ className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
 }
   export async function getStaticProps({params}) {
     // Fetch data from external API
-    const res = await fetch(`http://localhost:3000/api/projects/${params.id}`)
+    const res = await fetch(`https://cms.treehouse-ks.eu/api/projects/${params.id}`)
     const data = await res.json()
   
     const footerRes = await fetch(
-      "http://localhost:3000/api/globals/footer"
+      "https://cms.treehouse-ks.eu/api/globals/footer"
     );
     const footerData = await footerRes.json();
     // Pass data to the page via props

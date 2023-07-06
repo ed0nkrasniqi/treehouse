@@ -73,10 +73,10 @@ export default function Blog({ data, footerData }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`http://localhost:3000/api/blog/`);
+  const res = await fetch(`https://cms.treehouse-ks.eu/api/blog/`);
   const data = await res.json();
 
-  const footerRes = await fetch("http://localhost:3000/api/globals/footer");
+  const footerRes = await fetch("https://cms.treehouse-ks.eu/globals/footer");
   const footerData = await footerRes.json();
 
   return { props: { data, footerData } };

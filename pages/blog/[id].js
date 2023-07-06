@@ -30,7 +30,7 @@ export default function BlogPages({ data, footerData }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch("http://localhost:3000/api/blog/");
+  const res = await fetch("https://cms.treehouse-ks.eu/api/blog/");
   const data = await res.json();
 
   const paths = data.docs.map((item) => ({
@@ -44,10 +44,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(`http://localhost:3000/api/blog/${params.id}`);
+  const res = await fetch(`https://cms.treehouse-ks.eu/api/blog/${params.id}`);
   const data = await res.json();
 
-  const footerRes = await fetch("http://localhost:3000/api/globals/footer");
+  const footerRes = await fetch("https://cms.treehouse-ks.eu/api/globals/footer");
   const footerData = await footerRes.json();
 
   return { props: { data, footerData }, revalidate: 2 };

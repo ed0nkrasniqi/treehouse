@@ -55,12 +55,12 @@ export const comfortaa = Comfortaa({
 
   export async function getStaticProps() {
     const res = await fetch(
-      "http://localhost:3000/api/globals/about"
+      "https://cms.treehouse-ks.eu/api/globals/about"
     );
     const data = await res.json();
 
     const footerRes = await fetch(
-      "http://localhost:3000/api/globals/footer"
+      "https://cms.treehouse-ks.eu/api/globals/footer"
     );
     const footerData = await footerRes.json();
 

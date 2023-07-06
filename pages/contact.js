@@ -108,7 +108,7 @@ export default function Contact({data}) {
 
 export async function getStaticProps() {
   const res = await fetch(
-    "http://localhost:3000/api/globals/contact-info"
+    "https://cms.treehouse-ks.eu/api/globals/contact-info"
   );
   const data = await res.json();
 

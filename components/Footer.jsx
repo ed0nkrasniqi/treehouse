@@ -55,7 +55,7 @@ return (
 
 export async function getStaticProps() {
     const res = await fetch(
-      "http://localhost:3000/api/globals/footer"
+      "https://cms.treehouse-ks.eu/api/globals/footer"
     );
     const data = await res.json();
   
