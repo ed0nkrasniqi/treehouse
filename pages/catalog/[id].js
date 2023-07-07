@@ -9,6 +9,7 @@ import SquareMetres from '../../components/SquareMetres'
 import ContactUs from '@/components/Contactus'
 import { useInView } from "react-intersection-observer"
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 
 export const comfortaa = Comfortaa({

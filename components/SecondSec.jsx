@@ -3,6 +3,9 @@ import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import ContactUs from "./Contactus";
 
+
+import Image from "next/image";
+
 export default function SecondSec({ data }) {
   const [ref, inView] = useInView({
     threshold: 0.5,

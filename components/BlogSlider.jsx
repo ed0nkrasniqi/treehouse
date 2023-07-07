@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+
 
 function BlogSlider({ data }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -23,6 +26,7 @@ function BlogSlider({ data }) {
       <img
         className="h-full w-full object-cover "
         src={data?.blog[currentImageIndex].blogImg.url}
+        
         alt=""
         key={currentImageIndex}
 

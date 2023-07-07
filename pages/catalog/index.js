@@ -188,6 +188,7 @@ const Catalog = ({ data, footerData }) => {
               <div className="mr-5  rounded-xl border-[2px] border-zinc-300 hover:border-zinc-400">
                 <img
                   src="catalog1.jpg"
+                  width={200}
                   alt="Modern"
                   className={`rounded-t-xl ${
                     selectedCategory.includes("Modern") ? "border-green-900" : ""
@@ -202,6 +203,7 @@ const Catalog = ({ data, footerData }) => {
               <div className="rounded-xl border-2 shadow-sm border-zinc-300 hover:border-zinc-400">
                 <img
                   src="catalog2.jpg"
+                  width={200}
                   alt="Classic"
                   className={`rounded-t-xl ${
                     selectedCategory.includes("Classic") ? "border-green-900" : ""
