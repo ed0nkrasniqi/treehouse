@@ -222,7 +222,7 @@ const Catalog = ({ data, footerData }) => {
         <div className=" rounded-xl lg:float-right lg::w-3/4">
           {filteredProducts.length === 0 ? (
             <div className="flex justify-center items-center h-full">
-              <p className="lg:text-6xl m-2 text-3xl text-center">Sorry, there isn't a house with these requirements</p>
+              <p className="lg:text-6xl m-2 text-3xl text-center">Sorry, there isn`&lsquo;`t a house with these requirements</p>
             </div>
           ) : (
             <div className="grid lg:grid-cols-2 gap-4 lg:px-10 px-5 py-8">
