@@ -224,7 +224,7 @@ const Catalog = ({ data, footerData }) => {
             </div>
           ) : (
             <div className="grid lg:grid-cols-2 gap-4 lg:px-10 px-5 py-8">
-              {filteredProducts?.map((product) => (
+              {filteredProducts?.map((product,index) => (
                 <div className="border-2 rounded-xl hover:border-zinc-400" key={product.id}>
                   <Link href={`/catalog/${product?.id}`}>
                     <img

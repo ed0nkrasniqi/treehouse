@@ -128,7 +128,7 @@ className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
     const res = await fetch(`https://cms.treehouse-ks.eu/api/projects/`);
     const data =  await res.json();
 
-   const paths =  data?.docs?.map((doc) => ({
+   const paths =  data?.docs?.map((doc,index) => ({
         params : {id : doc?.id}
     }));
 

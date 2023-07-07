@@ -20,7 +20,7 @@ export default function Blog({ data, footerData }) {
   <h1 className="text-green-900 text-center text-5xl mb-20">Blog</h1>
   <div className="flex flex-wrap justify-center">
 
-    {data.docs.map((item) => (
+    {data.docs.map((item,index) => (
       <Link key={item.id} href={`/blog/${item?.id}`}>
         <motion.div
           className="relative  m-5"
