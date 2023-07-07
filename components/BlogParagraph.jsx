@@ -24,15 +24,15 @@ const BlogParagraph = ({ parag }) => {
             {child.type === "ul" && (
               <ul>
                 {child.children.map((li, index) => (
-
-                  <li  className="text-xl mx-10">• {li.children[0].text}</li>
+                
+                  <li key={index} className="text-xl mx-10">• {li.children[0].text}</li>
                 ))}
               </ul>
             )}
             {child.type === "ol" && (
               <ol>
               {child.children.map((li, index) => (
-              <li  className="text-xl mx-10 my-2">{index + 1}. {li.children[0].text}</li>
+              <li key={index}  className="text-xl mx-10 my-2">{index + 1}. {li.children[0].text}</li>
               ))}
               </ol>
             )}
