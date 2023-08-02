@@ -86,7 +86,7 @@ className='bg-zinc-100 lg:flex justify-center  m-10 rounded-xl lg:py-10 p-5'>
     <div key={floor.id} className='flex bg-[#f8f8f6]  justify-center'>
 <div className='border-2 border-zinc-200 shadow-lg rounded-xl bg-white sm:p-10 p-5 m-10'>
     <h4 className='text-center sm:py-10 sm:text-3xl text-xl font-bold'>{floor.fltitle}</h4>
-  <img src={floor.flimage.url} />
+  <Image src={floor.flimage.url} width={800} height={800} />
 </div>
 </div>
   )
@@ -105,8 +105,8 @@ className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
       <>
       <div
       key={more.id} className='flex   justify-center sm:w-1/2'>
-        <div className='lg:p-5  px-5 py-2'>
-          <img className='sm:rounded-3xl rounded-xl' src={more.galleryImages.url} />
+        <div className='p-2'>
+          <Image className='rounded-xl' src={more.galleryImages.url} width={900} height={500} />
         </div>
       </div>
       </>

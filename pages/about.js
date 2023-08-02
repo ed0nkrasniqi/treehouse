@@ -2,6 +2,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Comfortaa } from 'next/font/google'
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 
 export const comfortaa = Comfortaa({
@@ -38,10 +39,11 @@ export const comfortaa = Comfortaa({
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, type: 'just', stiffness: 120 }}
            >
-          <motion.img
+          <Image
             className='rounded-xl about-image'
             src={data.aboutImage.url}
-            alt='About'
+            width={800}
+            height={800}
           />
           </motion.div>
           </motion.div>

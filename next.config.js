@@ -1,22 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-
-}
-
-module.exports = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cms.treehouse-ks.eu',
-        pathname: '/**',
-      },
+    domains: [
+      'cms.treehouse-ks.eu',
+      'https://cms.treehouse-ks.eu',
+      'https://www.cms.treehouse-ks.eu',
+      'www.cms.treehouse-ks.eu',
     ],
   },
-  reactStrictMode: true,
 }
-module.exports = {
-  // ...
-  unstable_runtimeJS: false,
-}
+
+module.exports = nextConfig;

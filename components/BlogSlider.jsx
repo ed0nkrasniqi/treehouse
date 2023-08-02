@@ -23,11 +23,12 @@ function BlogSlider({ data }) {
     <div className="image-slider h-full w-full relative">
 
     <div className="slider-content flex justify-center h-full mb-20 ">
-      <img
+      <Image
         className="h-full w-full object-cover "
         src={data?.blog[currentImageIndex].blogImg.url}
         
-        alt=""
+        width={800}
+        height={800}
         key={currentImageIndex}
 
       />

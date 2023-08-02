@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import Link from "next/link";
 
 const BlogParagraph = ({ parag }) => {
@@ -69,12 +70,12 @@ export default BlogParagraph;
 
 const ImageComponent = ({ src, alt, width, height }) => {
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
       width={width}
       height={height}
-      className={`rounded-xl m-10`}
+      className={`rounded-xl p-10`}
     />
   );
 };

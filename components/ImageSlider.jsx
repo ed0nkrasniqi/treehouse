@@ -31,10 +31,11 @@ function ImageSlider({ data }) {
         <p className="font-medium sm:ml-10 ml-5 sm:text-2xl">{getCurrentImageText()}</p>
       </div> */}
       <div className="slider-content flex justify-center h-full">
-        <img
+        <Image
           className="h-full w-full object-contain"
           src={data?.prImages[currentImageIndex].image.url}
-          alt=""
+          width={500}
+          height={800}
           key={currentImageIndex}
 
         />

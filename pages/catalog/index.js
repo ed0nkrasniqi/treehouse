@@ -11,13 +11,14 @@ export const comfortaa = Comfortaa({
 });
 
 const Catalog = ({ data, footerData }) => {
-  console.log(data)
+  console.log(data);
 
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedBedrooms, setSelectedBedrooms] = useState([]);
   const [selectedBathrooms, setSelectedBathrooms] = useState([]);
   const [selectedStories, setSelectedStories] = useState([]);
   const [selectedGarage, setSelectedGarage] = useState('');
+  const [showFilters, setShowFilters] = useState(false); // State for filters toggle
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
@@ -50,22 +51,32 @@ const Catalog = ({ data, footerData }) => {
   const handleGarageChange = (garage) => {
     setSelectedGarage(garage);
   };
- 
+
   const filteredProducts = data.docs.filter((product) => {
     const categoryMatch = !selectedCategory || product?.style?.includes(selectedCategory);
-
     const bedroomsMatch = selectedBedrooms.length === 0 || selectedBedrooms.includes(product.bedroomsNumber);
     const bathroomsMatch = selectedBathrooms.length === 0 || selectedBathrooms.includes(product.bathrooms);
     const storiesMatch = selectedStories.length === 0 || selectedStories.includes(product.stories);
     const garageMatch = !selectedGarage || product.garage === selectedGarage;
     return categoryMatch && bedroomsMatch && bathroomsMatch && storiesMatch && garageMatch;
   });
-  console.warn('catalog',filteredProducts)
+
   return (
     <>
       <Header />
       <div className={`${comfortaa.className} lg:flex justify-center `}>
-        <div className="lg:float-left pb-10  mr-10 rounded-r-xl  ">
+        {/* Mobile filters toggle button */}
+        <div className="lg:hidden flex justify-center my-5">
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            className="bg-green-900 text-white px-4 py-2 rounded-lg"
+          >
+            {showFilters ? 'Hide Filters' : 'Show Filters'}
+          </button>
+        </div>
+
+        {/* Filters section */}
+        <div className={`lg:block ${showFilters ? 'block' : 'hidden'} lg:float-left pb-10  mr-10 rounded-r-xl `}>
           <div className="my-10 pb-10 border-b-2 lg:mx-10 mx-5 border-zinc-300 ">
             <h3 className="text-2xl">Filters</h3>
           </div>
@@ -186,9 +197,10 @@ const Catalog = ({ data, footerData }) => {
             <h4 className="text-lg my-5">Style</h4>
             <div className="flex ">
               <div className="mr-5  rounded-xl border-[2px] border-zinc-300 hover:border-zinc-400">
-                <img
-                  src="catalog1.jpg"
+                <Image
+                  src="/catalog1.jpg"
                   width={200}
+                  height={200}
                   alt="Modern"
                   className={`rounded-t-xl ${
                     selectedCategory.includes("Modern") ? "border-green-900" : ""
@@ -201,9 +213,10 @@ const Catalog = ({ data, footerData }) => {
                 </div>
               </div>
               <div className="rounded-xl border-2 shadow-sm border-zinc-300 hover:border-zinc-400">
-                <img
-                  src="catalog2.jpg"
+                <Image
+                  src="/catalog2.jpg"
                   width={200}
+                  height={200}
                   alt="Classic"
                   className={`rounded-t-xl ${
                     selectedCategory.includes("Classic") ? "border-green-900" : ""
@@ -219,27 +232,30 @@ const Catalog = ({ data, footerData }) => {
           </div>
         </div>
 
+        {/* Products display section */}
         <div className=" rounded-xl lg:float-right lg::w-3/4">
           {filteredProducts.length === 0 ? (
             <div className="flex justify-center items-center h-full">
-              <p className="lg:text-6xl m-2 text-3xl text-center">Sorry, there isn`&lsquo;`t a house with these requirements</p>
+              <p className="lg:text-6xl m-2 text-3xl text-center">Sorry, there isn't a house with these requirements</p>
             </div>
           ) : (
             <div className="grid lg:grid-cols-2 gap-4 lg:px-10 px-5 py-8">
-              {filteredProducts?.map((product,index) => (
+              {filteredProducts?.map((product, index) => (
                 <div className="border-2 rounded-xl hover:border-zinc-400" key={product.id}>
                   <Link href={`/catalog/${product?.id}`}>
-                    <img
+                    <Image
                       src={product.prImages[0]?.image?.url}
                       alt={product?.prTitle}
                       className="w-full rounded-t-xl h-96 object-cover"
+                      width={500}
+                      height={500}
                     />
                   </Link>
 
                   <div className="flex justify-between items-center p-2">
                     <h3 className="text-xl font-bold">{product?.prTitle}</h3>
                     <p className='opacity-80'>
-                      {product?.houseSquare  ?? ''}m²
+                      {product?.houseSquare ?? ''}m²
                     </p>
                   </div>
                 </div>
@@ -248,7 +264,7 @@ const Catalog = ({ data, footerData }) => {
           )}
         </div>
       </div>
-      <Footer data={footerData}/>
+      <Footer data={footerData} />
     </>
   );
 };

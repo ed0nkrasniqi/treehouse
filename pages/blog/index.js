@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 
 export const comfortaa = Comfortaa({
@@ -27,12 +28,14 @@ export default function Blog({ data, footerData }) {
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.2 }}
         >
-          <motion.img
+          <Image
             className="rounded-xl blog-images"
             src={item.blog[0].blogImg.url}
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }} 
+            width={400}
+            height={400}
           />
           <motion.div
             className="absolute rounded-xl px-5 inset-0 overflow-hidden"

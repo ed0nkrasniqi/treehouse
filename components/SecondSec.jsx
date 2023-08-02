@@ -2,8 +2,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import ContactUs from "./Contactus";
-
-
 import Image from "next/image";
 
 export default function SecondSec({ data }) {
@@ -35,7 +33,7 @@ export default function SecondSec({ data }) {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="relative border-[0.1rem] sm:m-0 mb-5 bg-[#f8f8f6] border-gray-300 shadow-sm hover:border-gray-500 hover:shadow-lg rounded-2xl"
             >
-              <img
+              <Image
                 className="section-house max-w-full  rounded-t-2xl"
                 src="/greenview.jpg"
                 alt="Greenview"
@@ -55,7 +53,7 @@ export default function SecondSec({ data }) {
               transition={{ duration: 0.5, delay: 1 }}
               className="relative sm:m-0 mb-5 border-[0.1rem] bg-[#f8f8f6] border-gray-300 shadow-sm hover:border-gray-500 hover:shadow-lg rounded-2xl"
             >
-              <img
+              <Image
                 className="section-house  rounded-t-2xl"
                 src="/ellisville.jpg"
                 alt="Greenview"
@@ -75,7 +73,7 @@ export default function SecondSec({ data }) {
               transition={{ duration: 0.5, delay: 1.5 }}
               className="relative sm:m-0 mb-5 p-0 border-[0.1rem] bg-[#f8f8f6] border-gray-300 shadow-sm hover:border-gray-500 hover:shadow-lg rounded-2xl"
             >
-              <img
+              <Image
                 className="section-house  rounded-t-2xl"
                 src="/blue_ridge.jpg"
                 alt="Greenview"
@@ -95,7 +93,7 @@ export default function SecondSec({ data }) {
               transition={{ duration: 0.5, delay: 2 }}
               className="relative sm:m-0 mb-5 border-[0.1rem] bg-[#f8f8f6] border-gray-300 shadow-sm hover:border-gray-500 hover:shadow-lg rounded-2xl"
             >
-              <img
+              <Image
                 className="section-house  rounded-t-2xl"
                 src="/winbourne.jpg"
                 alt="Greenview"
@@ -131,7 +129,7 @@ export default function SecondSec({ data }) {
               className="bg-white w-96 rounded-2xl p-5 mx-3 my-3 border-2 border-zinc-300"
             >
               <div className="flex items-center rounded-2xl">
-                <img className="profile-pic mr-3 rounded-full" src={test.userImage.url} />
+                <Image className="profile-pic mr-3 rounded-full" width={100} height={100} src={test.userImage.url} />
                 <h4 className="sm:text-xl text-lg font-medium">{test.userName}</h4>
               </div>
               <p className="mr-3 mt-3">{test.userComment}</p>
