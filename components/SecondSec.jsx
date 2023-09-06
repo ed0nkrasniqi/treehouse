@@ -224,20 +224,18 @@ export default function SecondSec({ data }) {
                 className="flex flex-col justify-center  items-center w-[270px]"
               >
                 <div className="p-3 rounded-full border-4 border-[#062925] w-[130px]">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="100"
-                    height="100"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#062925"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-hammer"
-                  >
-                    <path d="m15 10a3 3 0 1 1-3-3 3 3 0 0 1 3 3zm0 0h6m-6 0v6m0-6l-2 2m2-2l2-2"></path>
-                    <path d="m9 21v-6m0 6a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 0h-6m6 0l2 2m-2-2l-2-2"></path>
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                width="100" 
+                height="100" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="#062925" strokeWidth="1" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className="lucide lucide-hammer">
+                  <path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"/>
+                  <path d="M17.64 15 22 10.64"/>
+                  <path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/>
                   </svg>
                 </div>
                 <div className="mt-5">

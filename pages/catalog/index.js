@@ -52,6 +52,14 @@ const Catalog = ({ data, footerData }) => {
     setSelectedGarage(garage);
   };
 
+  const resetFilters = () => {
+    setSelectedCategory('');
+    setSelectedBedrooms([]);
+    setSelectedBathrooms([]);
+    setSelectedStories([]);
+    setSelectedGarage('');
+  };
+
   const filteredProducts = data.docs.filter((product) => {
     const categoryMatch = !selectedCategory || product?.style?.includes(selectedCategory);
     const bedroomsMatch = selectedBedrooms.length === 0 || selectedBedrooms.includes(product.bedroomsNumber);
@@ -66,7 +74,7 @@ const Catalog = ({ data, footerData }) => {
       <Header />
       <div className={`${comfortaa.className} lg:flex justify-center `}>
         {/* Mobile filters toggle button */}
-        <div className="lg:hidden flex justify-center my-5">
+        <div className="lg:hidden mx-5 my-5">
           <button
             onClick={() => setShowFilters(!showFilters)}
             className="bg-green-900 text-white px-4 py-2 rounded-lg"
@@ -76,7 +84,7 @@ const Catalog = ({ data, footerData }) => {
         </div>
 
         {/* Filters section */}
-        <div className={`lg:block ${showFilters ? 'block' : 'hidden'} lg:float-left pb-10  mr-10 rounded-r-xl `}>
+        <div className={`lg:block ${showFilters ? 'block' : 'hidden'} lg:float-left pb-10  mr-5 rounded-r-xl `}>
           <div className="my-10 pb-10 border-b-2 lg:mx-10 mx-5 border-zinc-300 ">
             <h3 className="text-2xl">Filters</h3>
           </div>
@@ -85,7 +93,7 @@ const Catalog = ({ data, footerData }) => {
             <h4 className="text-lg mb-2">Bedrooms</h4>
             <div className="flex">
               <button
-                className={`py-0 px-3 rounded-xl ${
+                className={`py-2 px-4 rounded-xl ${
                   selectedBedrooms.includes(2) ? 'bg-green-900 text-white' : 'bg-white border-2 border-green-900'
                 }`}
                 onClick={() => handleBedroomsChange(2)}
@@ -195,8 +203,8 @@ const Catalog = ({ data, footerData }) => {
 
           <div className="lg:m-10 mx-5">
             <h4 className="text-lg my-5">Style</h4>
-            <div className="flex ">
-              <div className="mr-5  rounded-xl border-[2px] border-zinc-300 hover:border-zinc-400">
+            <div className="xl:flex  ">
+              <div className="mr-5 xl:mb-0 mb-5 w-[200px]   rounded-xl border-[2px] border-zinc-300 hover:border-zinc-400">
                 <Image
                   src="/catalog1.jpg"
                   width={200}
@@ -212,7 +220,7 @@ const Catalog = ({ data, footerData }) => {
                   <p className="text-center py-1 text-[15px]">Modern House</p>
                 </div>
               </div>
-              <div className="rounded-xl border-2 shadow-sm border-zinc-300 hover:border-zinc-400">
+              <div className="rounded-xl w-[200px] border-2 shadow-sm border-zinc-300 hover:border-zinc-400">
                 <Image
                   src="/catalog2.jpg"
                   width={200}
@@ -230,13 +238,23 @@ const Catalog = ({ data, footerData }) => {
               </div>
             </div>
           </div>
+
+          {/* Reset Filters button */}
+          <div className="  lg:mx-10 mx-5 pb-5">
+            <button
+              className="bg-green-900 text-white mt-10 px-4 py-2 rounded-xl"
+              onClick={resetFilters}
+            >
+              Reset Filters
+            </button>
+          </div>
         </div>
 
-        {/* Products display section */}
+        {/* Product list */}
         <div className=" rounded-xl lg:float-right lg::w-3/4">
           {filteredProducts.length === 0 ? (
             <div className="flex justify-center items-center h-full">
-              <p className="lg:text-6xl m-2 text-3xl text-center">Sorry, there isn't a house with these requirements</p>
+              <p className="lg:text-6xl m-2 text-3xl text-center">Sorry, there is not a house with these requirements</p>
             </div>
           ) : (
             <div className="grid lg:grid-cols-2 gap-4 lg:px-10 px-5 py-8">
@@ -255,7 +273,7 @@ const Catalog = ({ data, footerData }) => {
                   <div className="flex justify-between items-center p-2">
                     <h3 className="text-xl font-bold">{product?.prTitle}</h3>
                     <p className='opacity-80'>
-                      {product?.houseSquare ?? ''}m²
+                      {product?.houseSquare ?? ''}
                     </p>
                   </div>
                 </div>
@@ -278,8 +296,9 @@ export async function getStaticProps() {
 
   const footerRes = await fetch(
     "https://cms.treehouse-ks.eu/api/globals/footer"
-);
+  );
   const footerData = await footerRes.json();
 
   return { props: { data, footerData } };
 }
+
