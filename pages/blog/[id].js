@@ -50,5 +50,5 @@ export async function getStaticProps({ params }) {
   const footerRes = await fetch("https://cms.treehouse-ks.eu/api/globals/footer");
   const footerData = await footerRes.json();
 
-  return { props: { data, footerData }, revalidate: 2 };
+  return { props: { data, footerData }, revalidate : 2 };
 }

@@ -300,7 +300,7 @@ export async function getStaticProps() {
   );
   const footerData = await footerRes.json();
 
-  return { props: { data, footerData }, revalidate: 1, };
+  return { props: { data, footerData }, revalidate : 1  };
 
 }
 

@@ -270,5 +270,5 @@ export default function SecondSec({ data }) {
     );
     const data = await res.json();
   
-    return { props: { data } };
+    return { props: { data }, revalidate : 1  };
   }

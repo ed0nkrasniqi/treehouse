@@ -69,5 +69,5 @@ export const comfortaa = Comfortaa({
 
 
   
-    return { props: { data, footerData } };
+    return { props: { data, footerData } , revalidate : 1  };
   }

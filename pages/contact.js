@@ -112,5 +112,5 @@ export async function getStaticProps() {
   );
   const data = await res.json();
 
-  return { props: { data } };
+  return { props: { data } , revalidate : 1 };
 }
