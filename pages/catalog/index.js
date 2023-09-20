@@ -293,12 +293,14 @@ export default Catalog;
 export async function getStaticProps() {
   const res = await fetch(`https://cms.treehouse-ks.eu/api/projects/`);
   const data = await res.json();
+  
 
   const footerRes = await fetch(
     "https://cms.treehouse-ks.eu/api/globals/footer"
   );
   const footerData = await footerRes.json();
 
-  return { props: { data, footerData } };
+  return { props: { data, footerData }, revalidate: 1, };
+
 }
 
