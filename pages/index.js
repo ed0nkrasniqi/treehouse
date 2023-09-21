@@ -14,11 +14,11 @@ export const comfortaa = Comfortaa({
   weight: ['300', '400', '500', '600']
 })
 
-export default function Home({ data, sliderData, footerData }) {
+export default function Home({ data, sliderData, footerData,imgData  }) {
   return (
     <main className={`${comfortaa.className}`}>
       <Header />
-      <FirstSection />
+      <FirstSection data={imgData}/>
       <SecondSec data={data} />
       <Slider data={sliderData} />
       <Footer data={footerData}/>
@@ -28,6 +28,9 @@ export default function Home({ data, sliderData, footerData }) {
 
 export async function getServerSideProps() {
   // Fetch data from external API for data prop
+
+
+
   const res = await fetch(`https://cms.treehouse-ks.eu/api/testimonials/64622888290d0bd251bff7a8`)
   const data = await res.json()
 
@@ -38,8 +41,16 @@ export async function getServerSideProps() {
   const footerRes = await fetch(
     "https://cms.treehouse-ks.eu/api/globals/footer"
   );
-  const footerData = await footerRes.json();
+  const footerData = await footerRes.json();  
+
+    const imgRes = await fetch(
+      "http://localhost:3000/api/globals/mainimage"
+    );
+    const imgData = await imgRes.json();
+  
+ 
+ 
 
   // Pass data to the page via props
-  return { props: { data, sliderData, footerData, } }
+  return { props: { data, sliderData, footerData, imgData  } }
 }
