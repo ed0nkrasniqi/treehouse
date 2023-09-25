@@ -8,17 +8,19 @@ import Comment from '../components/Comment'
 import SecondSec from '../components/SecondSec'
 import ImageSlider from '../components/ImageSlider'
 import Slider from '../components/Slider'
+import ShowRoom from '@/components/ShowRoom'
 
 export const comfortaa = Comfortaa({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600']
 })
 
-export default function Home({ data, sliderData, footerData,imgData  }) {
+export default function Home({ data, sliderData, footerData,imgData, showData  }) {
   return (
     <main className={`${comfortaa.className}`}>
       <Header />
       <FirstSection data={imgData}/>
+      <ShowRoom data={showData}/>
       <SecondSec data={data} />
       <Slider data={sliderData} />
       <Footer data={footerData}/>
@@ -47,10 +49,16 @@ export async function getServerSideProps() {
       "http://localhost:3000/api/globals/mainimage"
     );
     const imgData = await imgRes.json();
+
+    const showRes = await fetch(
+      "http://localhost:3000/api/showroom/"
+    );
+    const showData = await showRes.json();
+    
   
  
  
 
   // Pass data to the page via props
-  return { props: { data, sliderData, footerData, imgData  } }
+  return { props: { data, sliderData, footerData, imgData, showData  } }
 }
