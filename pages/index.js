@@ -46,12 +46,12 @@ export async function getServerSideProps() {
   const footerData = await footerRes.json();  
 
     const imgRes = await fetch(
-      "http://localhost:3000/api/globals/mainimage"
+      "https://cms.treehouse-ks.eu/api/globals/mainimage"
     );
     const imgData = await imgRes.json();
 
     const showRes = await fetch(
-      "http://localhost:3000/api/showroom/"
+      "https://cms.treehouse-ks.eu/api/showroom/"
     );
     const showData = await showRes.json();
     

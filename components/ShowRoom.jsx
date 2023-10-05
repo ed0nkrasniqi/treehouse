@@ -47,7 +47,7 @@ export default function ShowRoom({ data }) {
 
 export async function getStaticProps() {
   const res = await fetch(
-    "http://localhost:3000/api/showroom/"
+    "https://cms.treehouse-ks.eu/api/showroom/"
   );
   const data = await res.json();
 

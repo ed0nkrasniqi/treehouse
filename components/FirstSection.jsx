@@ -26,7 +26,7 @@ export default function FirstSection({ data }) {
 
 export async function getStaticProps() {
   const res = await fetch(
-    "http://localhost:3000/api/globals/mainimage"
+    "https://cms.treehouse-ks.eu/api/globals/mainimage"
   );
   const data = await res.json();
 
