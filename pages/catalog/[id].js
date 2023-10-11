@@ -134,7 +134,7 @@ className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
     }));
 
     return {
-      paths, fallback: true
+      paths, fallback: false,
 }
 }
   export async function getStaticProps({params}) {
