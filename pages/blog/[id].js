@@ -18,7 +18,7 @@ export default function BlogPages({ data, footerData }) {
         <BlogSlider data={data}/>
         
         <div className="mb-20">
-          <BlogParagraph parag={data.content}/>
+          <BlogParagraph parag={data?.content}/>
         </div>
     
         

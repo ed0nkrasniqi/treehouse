@@ -50,7 +50,7 @@ className='bg-zinc-100 lg:flex justify-center  m-10 rounded-xl lg:py-10 p-5'>
 <div className='lg:pl-10  py-10 lg:pr-32'>
 <div>
   <h3 className='sm:text-3xl text-xl font-bold mb-5'>House Square Metres</h3>
-  <SquareMetres metres={data.houseSquare}/>
+  <SquareMetres metres={data?.houseSquare}/>
   </div>
   <div className='flex jusitfy-center'>
     <Link href='/contact' target='_blank' className='text-white font-bold sm:text-xl bg-green-950 text-center rounded-full lg:mt-10 mt-3 lg:px-28 px-16 lg:py-4 py-2'>Contact Us</Link>
