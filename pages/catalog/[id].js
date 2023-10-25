@@ -81,7 +81,7 @@ className='bg-zinc-100 lg:flex justify-center  m-10 rounded-xl lg:py-10 p-5'>
 {/* ////// */}
 
 
-{data.floorImages.map((floor, index)=>{
+{data?.floorImages?.map((floor, index)=>{
   return (
     <div key={floor?.id} className='flex bg-[#f8f8f6]  justify-center'>
 <div className='border-2 border-zinc-200 shadow-lg rounded-xl bg-white sm:p-10 p-5 m-10'>
