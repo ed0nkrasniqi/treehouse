@@ -33,13 +33,13 @@ export async function getStaticPaths() {
   const res = await fetch("https://cms.treehouse-ks.eu/api/blog/");
   const data = await res.json();
 
-  const paths = data.docs.map((item,index) => ({
+  const paths = data.docs.map((item,) => ({
     params: { id: item?.id.toString() }
   }));
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 

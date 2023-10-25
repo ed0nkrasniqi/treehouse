@@ -100,7 +100,7 @@ className='bg-zinc-100 lg:flex justify-center  m-10 rounded-xl lg:py-10 p-5'>
        animate={inViewImg && { opacity: 1, transition: { duration: 0.5,} }}
 className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
   
-  {data.moreImages.map((more, index) => {
+  {data.moreImages.map((more, ) => {
     return (
       <>
       <div
@@ -129,12 +129,12 @@ className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
     const res = await fetch(`https://cms.treehouse-ks.eu/api/projects/`);
     const data =  await res.json();
 
-   const paths =  data?.docs?.map((doc,index) => ({
+   const paths =  data?.docs?.map((doc,) => ({
         params : {id : doc?.id}
     }));
 
     return {
-      paths, fallback: false,
+      paths, fallback: true,
 }
 }
   export async function getStaticProps({params}) {
