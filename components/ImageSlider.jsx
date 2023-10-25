@@ -7,13 +7,13 @@ function ImageSlider({ data }) {
 
   const previousImage = () => {
     setCurrentImageIndex(
-      currentImageIndex === 0 ? data?.prImages.length - 1 : currentImageIndex - 1
+      currentImageIndex === 0 ? data?.prImages?.length - 1 : currentImageIndex - 1
     );
   };
 
   const nextImage = () => {
     setCurrentImageIndex(
-      currentImageIndex === data?.prImages.length - 1 ? 0 : currentImageIndex + 1
+      currentImageIndex === data?.prImages?.length - 1 ? 0 : currentImageIndex + 1
     );
   };
 
@@ -33,7 +33,7 @@ function ImageSlider({ data }) {
       <div className="slider-content flex justify-center h-full">
         <Image
           className="h-full w-full object-contain"
-          src={data?.prImages[currentImageIndex].image.url}
+          src={data?.prImages[currentImageIndex]?.image?.url}
           width={500}
           height={800}
           key={currentImageIndex}

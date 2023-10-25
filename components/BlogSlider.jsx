@@ -9,13 +9,13 @@ function BlogSlider({ data }) {
 
   const previousImage = () => {
     setCurrentImageIndex(
-      currentImageIndex === 0 ? data?.blog.length - 1 : currentImageIndex - 1
+      currentImageIndex === 0 ? data?.blog?.length - 1 : currentImageIndex - 1
     );
   };
 
   const nextImage = () => {
     setCurrentImageIndex(
-      currentImageIndex === data?.blog.length - 1 ? 0 : currentImageIndex + 1
+      currentImageIndex === data?.blog?.length - 1 ? 0 : currentImageIndex + 1
     );
   };
 
@@ -25,7 +25,7 @@ function BlogSlider({ data }) {
     <div className="slider-content flex justify-center h-full mb-20 ">
       <Image
         className="h-full w-full object-cover "
-        src={data?.blog[currentImageIndex].blogImg.url}
+        src={data?.blog[currentImageIndex]?.blogImg?.url}
         
         width={800}
         height={800}

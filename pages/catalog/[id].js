@@ -106,7 +106,7 @@ className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
       <div
       key={more.id} className='flex   justify-center sm:w-1/2'>
         <div className='p-2'>
-          <Image className='rounded-xl' src={more.galleryImages?.url} width={900} height={500} />
+          <Image className='rounded-xl' src={more?.galleryImages?.url} width={900} height={500} />
         </div>
       </div>
       </>

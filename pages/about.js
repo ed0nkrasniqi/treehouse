@@ -41,7 +41,7 @@ export const comfortaa = Comfortaa({
            >
           <Image
             className='rounded-xl about-image'
-            src={data.aboutImage.url}
+            src={data?.aboutImage?.url}
             width={800}
             height={800}
           />

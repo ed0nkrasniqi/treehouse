@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function FirstSection({ data }) {
     const sectionStyle = {
-        backgroundImage: `url(${data.mainImg.url})`,
+        backgroundImage: `url(${data?.mainImg?.url})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '80vh',
