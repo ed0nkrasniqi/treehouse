@@ -50,7 +50,7 @@ export default function Blog({ data, footerData }) {
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               {item.isHovered && (
-                <motion.span className="text-2xl pb-2">{item.data.blogTitle}</motion.span>
+                <motion.span className="text-2xl pb-2">{item?.data?.blogTitle}</motion.span>
               )}
             </motion.div>
             <motion.div
@@ -60,7 +60,7 @@ export default function Blog({ data, footerData }) {
               transition={{ duration: 0.3 }}
             >
               <div className="bg-gradient-to-b from-transparent to-gray-900 h-full w-full flex place-items-end justify-center text-white">
-                <span className="text-2xl pb-2">{item.blog[0].blogTitle}</span>
+                <span className="text-2xl pb-2">{item?.blog[0]?.blogTitle}</span>
               </div>
             </motion.div>
           </motion.div>

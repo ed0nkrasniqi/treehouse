@@ -60,8 +60,8 @@ className='bg-zinc-100 lg:flex justify-center  m-10 rounded-xl lg:py-10 p-5'>
 
 <div  className='bg-white lg:pr-[380px]  lg:pl-10  py-10 px-5 rounded-xl'>
         <h3 className='sm:text-3xl text-xl font-bold mb-10'>Featured Highlights</h3>
-       <BedroomsNum number= {data.bedroomsNumber}/>
-       <BathroomsNum number={data.bathroomsNumber} />
+       <BedroomsNum number= {data?.bedroomsNumber}/>
+       <BathroomsNum number={data?.bathroomsNumber} />
        
 
 <div className='lg:flex justify-between items-center'>
@@ -83,10 +83,10 @@ className='bg-zinc-100 lg:flex justify-center  m-10 rounded-xl lg:py-10 p-5'>
 
 {data.floorImages.map((floor, index)=>{
   return (
-    <div key={floor.id} className='flex bg-[#f8f8f6]  justify-center'>
+    <div key={floor?.id} className='flex bg-[#f8f8f6]  justify-center'>
 <div className='border-2 border-zinc-200 shadow-lg rounded-xl bg-white sm:p-10 p-5 m-10'>
-    <h4 className='text-center sm:py-10 sm:text-3xl text-xl font-bold'>{floor.fltitle}</h4>
-  <Image src={floor.flimage.url} width={800} height={800} />
+    <h4 className='text-center sm:py-10 sm:text-3xl text-xl font-bold'>{floor?.fltitle}</h4>
+  <Image src={floor?.flimage?.url} width={800} height={800} />
 </div>
 </div>
   )
@@ -100,7 +100,7 @@ className='bg-zinc-100 lg:flex justify-center  m-10 rounded-xl lg:py-10 p-5'>
        animate={inViewImg && { opacity: 1, transition: { duration: 0.5,} }}
 className='flex flex-wrap mb-2 border-zinc-300  justify-center'>
   
-  {data.moreImages.map((more, ) => {
+  {data?.moreImages?.map((more, ) => {
     return (
       <>
       <div

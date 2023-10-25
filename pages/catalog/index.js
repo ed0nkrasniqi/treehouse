@@ -252,17 +252,17 @@ const Catalog = ({ data, footerData }) => {
 
         {/* Product list */}
         <div className=" rounded-xl lg:float-right lg::w-3/4">
-          {filteredProducts.length === 0 ? (
+          {filteredProducts?.length === 0 ? (
             <div className="flex justify-center items-center h-full">
               <p className="lg:text-6xl m-2 text-3xl text-center">Sorry, there is not a house with these requirements</p>
             </div>
           ) : (
             <div className="grid lg:grid-cols-2 gap-4 lg:px-10 px-5 py-8">
               {filteredProducts?.map((product, index) => (
-                <div className="border-2 rounded-xl hover:border-zinc-400" key={product.id}>
+                <div className="border-2 rounded-xl hover:border-zinc-400" key={product?.id}>
                   <Link href={`/catalog/${product?.id}`}>
                     <Image
-                      src={product.prImages[0]?.image?.url}
+                      src={product?.prImages[0]?.image?.url}
                       alt={product?.prTitle}
                       className="w-full rounded-t-xl h-96 object-cover"
                       width={500}
