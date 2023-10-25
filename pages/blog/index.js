@@ -21,7 +21,7 @@ export default function Blog({ data, footerData }) {
   <h1 className="text-green-900 text-center text-5xl mb-20">Blog</h1>
   <div className="flex flex-wrap justify-center">
 
-    {data.docs.map((item,index) => (
+    {data?.docs?.map((item,index) => (
       <Link key={item.id} href={`/blog/${item?.id}`}>
         <motion.div
           className="relative  m-5"
@@ -30,7 +30,7 @@ export default function Blog({ data, footerData }) {
         >
           <Image
             className="rounded-xl blog-images"
-            src={item.blog[0].blogImg.url}
+            src={item?.blog[0]?.blogImg?.url}
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }} 
